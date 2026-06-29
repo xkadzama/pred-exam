@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if cars %}
+    {% for car in cars %}
+        <h2>Бренд: {{ car.brand }}</h2>
+        <h2>Модель: {{ car.model }}</h2>
+        <h2>Цена: {{ car.price }}</h2>
+        <h2>Год выпуска: {{ car.year }}</h2>
+        <hr>
+    {% endfor %}
+{% else %}
+    <h1>Автомобили отсутствуют</h1>
+{% endif %}
+</body>
+</html>

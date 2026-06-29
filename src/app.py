@@ -1,7 +1,12 @@
-from database.engine import SessionLocal
-from database.models import Car
+from flask import Flask, render_template
+from dealer.routes import dealer_bp
 
-with SessionLocal() as session:
-	stmt = Car(brand='Toyota', model='Camry', price=3000000, dealer_id=2)
-	session.add(stmt)
-	session.commit()
+
+app = Flask(__name__)
+
+
+app.register_blueprint(dealer_bp)
+
+
+if __name__ == '__main__':
+	app.run(debug=True, port=2000)
